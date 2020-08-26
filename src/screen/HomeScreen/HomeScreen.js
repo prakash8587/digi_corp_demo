@@ -7,6 +7,7 @@ import {
   FlatList,
   ScrollView,
   Image,
+  TouchableOpacity
 } from 'react-native';
 import {styles} from './HomeScreenStyle';
 import HomeHeader from '../../component/HomeHeader/HomeHeader';
@@ -36,6 +37,7 @@ class HomeScreen extends Component {
             <Text style={styles.extraHeaderText}>Good Morning, Prakash!</Text>
           </View>
           <HomeCardRound
+            onPress={() => this.props.navigation.navigate('SaveTaxScreen')}
             cardTopText={'Save tax up'}
             cardTopTextAmount={'₹78,000'}
             cardBottomText={'all tax-saving options. Instant proofs'}
@@ -53,23 +55,25 @@ class HomeScreen extends Component {
               buttonText={'Deposit Now'}
             />
             <View style={styles.seperatorView} />
-            <HomeCard
-              cardTopText={'Buy Insurance'}
-              cardBottomText={'Best price. Expert help'}
-              buttonText={'Recent Activities'}
-            />
-            <View style={styles.policyView}>
-              <Text style={styles.policyText}>Buy new policy</Text>
-              <View style={styles.policyLineView} />
-            </View>
-            <FlatList
-              data={policydata}
-              keyExtractor={this.getKeyExtractor}
-              style={styles.horizontalList}
-              renderItem={({item}) => this.renderItem(item)}
-              horizontal
-              ItemSeparatorComponent={this.renderSeperator}
-            />
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Insurance')}>
+              <HomeCard
+                cardTopText={'Buy Insurance'}
+                cardBottomText={'Best price. Expert help'}
+                buttonText={'Recent Activities'}
+              />
+              <View style={styles.policyView}>
+                <Text style={styles.policyText}>Buy new policy</Text>
+                <View style={styles.policyLineView} />
+              </View>
+              <FlatList
+                data={policydata}
+                keyExtractor={this.getKeyExtractor}
+                style={styles.horizontalList}
+                renderItem={({item}) => this.renderItem(item)}
+                horizontal
+                ItemSeparatorComponent={this.renderSeperator}
+              />
+            </TouchableOpacity>
             <View style={styles.covidView}>
               <Image
                 style={styles.covidImage}

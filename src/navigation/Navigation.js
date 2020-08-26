@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator, BottomTabBar} from 'react-navigation-tabs';
 import Home from '../screen/HomeScreen/HomeScreen';
 import Insurance from '../screen/InsuranceScreen/InsuranceScreen';
+import HomeNavigator from '../navigation/HomeNavigator'
 import {Image} from 'react-native';
 
 const TabBarComponent = (props) => <BottomTabBar {...props} />;
 
 const AppNavigator = createBottomTabNavigator(
   {
-    Home: {screen: Home},
+    Home: {screen: HomeNavigator},
     Insurance: {screen: Insurance},
   },
 

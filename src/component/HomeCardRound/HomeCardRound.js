@@ -4,7 +4,7 @@ import {styles} from './HomeCardRoundStyle';
 
 const HomeCardRound = (props) => {
   return (
-    <View style={styles.cardContainer}>
+    <TouchableOpacity onPress={props.onPress} style={styles.cardContainer}>
       <View style={styles.cardTopView}>
         <View style={styles.cardTextView}>
           <View style={styles.cardTopTextView}>
@@ -34,7 +34,7 @@ const HomeCardRound = (props) => {
           Maximize savings with ELSS, NPS and Insurance
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
